@@ -1,2 +1,2 @@
-# The-Training-Grounds
-Repo to hold small and random projects
+# The Training Grounds ⚔️
+Holds small, random projects
