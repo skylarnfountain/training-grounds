@@ -2,7 +2,7 @@
 Welcome to The Training Grounds, where this soldier practices her coding skills on small tasks and challenges. 
 
 ## Getting Started
-Explore the Grounds 🏹: Browse through the documentation folders to uncover the librarian's notes on various topics.
+Explore the Grounds 🏹: Navigate through each project to view the code
 
 ## Future Additions
 - Root menu to navigate between web pages for projects
