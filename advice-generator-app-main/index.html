@@ -16,21 +16,32 @@
     return response.json();
   }).then(data => {
     console.log(data);
-    document.getElementById('advice').innerText = data.slip.advice; console.log(data.slip.advice);
-    document.getElementById('advice-title').innerText = data.slip.id; console.log(data.slip.id);
+    document.getElementById('advice').innerText = data.slip.advice;
+    document.getElementById('advice-title').innerText = data.slip.id;
   }).catch(err => {
     // Do something for an error here
   });
+  function fetchData() {
+    var apiUrl = '	https://api.adviceslip.com/advice';
+  fetch(apiUrl).then(response => {
+    return response.json();
+  }).then(data => {
+    console.log(data);
+    document.getElementById('advice').innerText = data.slip.advice;
+  }).catch(err => {
+    // Do something for an error here
+  });
+  }
 </script>
 
 <body>
   <div class="container">
     <div class="box">
-      <h1>Advice <span id="advice-title"></h1>
+      <h1>Advice <span id="advice-title"></span></h1>
       <p id="advice"></p>
       <img src="./images/pattern-divider-desktop.svg">
       <div class="icon">
-        <img src="./images/icon-dice.svg">
+        <img src="./images/icon-dice.svg" onclick="fetchData()">
       </div>
     </div>
   </div>
