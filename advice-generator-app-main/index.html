@@ -6,46 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="styles.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
   <title>Frontend Mentor | Advice generator app</title>
 </head>
-
-<script type="text/javascript">
-  var apiUrl = '	https://api.adviceslip.com/advice';
-  fetch(apiUrl).then(response => {
-    return response.json();
-  }).then(data => {
-    console.log(data);
-    document.getElementById('advice').innerText = data.slip.advice;
-    document.getElementById('advice-title').innerText = data.slip.id;
-  }).catch(err => {
-    // Do something for an error here
-  });
-  function fetchData() {
-    var apiUrl = '	https://api.adviceslip.com/advice';
-  fetch(apiUrl).then(response => {
-    return response.json();
-  }).then(data => {
-    console.log(data);
-    document.getElementById('advice').innerText = data.slip.advice;
-    document.getElementById('advice-title').innerText = data.slip.id;
-  }).catch(err => {
-    // Do something for an error here
-  });
-  }
-</script>
 
 <body>
   <div class="container">
     <div class="box">
       <h1>Advice <span id="advice-title"></span></h1>
       <p id="advice"></p>
-      <img src="./images/pattern-divider-desktop.svg">
+      <img src="./images/pattern-divider-desktop.svg" alt="Pattern Divider">
       <div class="icon">
-        <img src="./images/icon-dice.svg" onclick="fetchData()">
+        <img id="fetch-advice" src="./images/icon-dice.svg" alt="Fetch Advice Icon">
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    function fetchAdvice() {
+      var apiUrl = 'https://api.adviceslip.com/advice';
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          document.getElementById('advice').innerText = data.slip.advice;
+          document.getElementById('advice-title').innerText = data.slip.id;
+        })
+        .catch(err => {
+          console.error('Error fetching advice:', err);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      fetchAdvice();
+      document.getElementById('fetch-advice').addEventListener('click', fetchAdvice);
+    });
+  </script>
 </body>
 
 </html>
