@@ -21,8 +21,9 @@
     </div>
   </div>
   <script type="text/javascript">
+    /* Fetches advice quote from API and populates values */
     function fetchAdvice() {
-      var apiUrl = 'https://api.adviceslip.com/advice';
+      var apiUrl = 'https://api.adviceslip.com/advice'; // Documentation: https://api.adviceslip.com
       fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
@@ -34,10 +35,11 @@
           console.error('Error fetching advice:', err);
         });
     }
-    document.addEventListener('DOMContentLoaded', function () {
-      fetchAdvice();
-      document.getElementById('fetch-advice').addEventListener('click', fetchAdvice);
-    });
+
+    fetchAdvice();
+
+    /* Adds event listener to the <img> element to fetch advice again when clicked */
+    document.getElementById('fetch-advice').addEventListener('click', fetchAdvice);
   </script>
 </body>
 
