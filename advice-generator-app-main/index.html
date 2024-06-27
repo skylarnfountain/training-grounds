@@ -28,6 +28,7 @@
   }).then(data => {
     console.log(data);
     document.getElementById('advice').innerText = data.slip.advice;
+    document.getElementById('advice-title').innerText = data.slip.id;
   }).catch(err => {
     // Do something for an error here
   });
