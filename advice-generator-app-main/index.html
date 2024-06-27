@@ -22,18 +22,22 @@
   </div>
   <script type="text/javascript">
     /* Fetches advice quote from API and populates values */
-    function fetchAdvice() {
-      var apiUrl = 'https://api.adviceslip.com/advice'; // Documentation: https://api.adviceslip.com
-      fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          document.getElementById('advice').innerText = data.slip.advice;
-          document.getElementById('advice-title').innerText = data.slip.id;
-        })
-        .catch(err => {
-          console.error('Error fetching advice:', err);
-        });
+    async function fetchAdvice() {
+      try {
+        var apiUrl = 'https://api.adviceslip.com/advice';
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          throw new Error('Error in fetching Advice API: ' + response.statusText);
+        }
+
+        const data = await response.json();
+        
+        document.getElementById('advice').innerText = data.slip.advice;
+        document.getElementById('advice-title').innerText = data.slip.id;
+      } catch (error) {
+        console.error('Error in fetchAdvice', error);
+      }
     }
 
     fetchAdvice();
