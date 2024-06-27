@@ -14,7 +14,18 @@
   <div class="container">
     <div class="box">
       <h1>Gandalf Wisdom</h1>
-      <p>The world isn't in your books - it's out there.</p>
+      <p id="advice"></p>
+      <script type="text/javascript">
+        var apiUrl = '	https://api.adviceslip.com/advice';
+        fetch(apiUrl).then(response => {
+          return response.json();
+        }).then(data => {
+          // Work with JSON data here
+          document.getElementById('advice').innerText = data.slip.advice; console.log(data.slip.advice);
+        }).catch(err => {
+          // Do something for an error here
+        });
+      </script>
       <img src="./images/pattern-divider-desktop.svg">
       <div class="icon">
         <img src="./images/icon-dice.svg">
