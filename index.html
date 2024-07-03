@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Page</title>
+  <style>
+    * {
+      font-family: 'Fantasy', sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #a5cbaa;
+      background-image: url('./images/home.jpeg');
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      text-align: center;
+      background-color: #6F8361;
+      padding: 20px;
+      max-width: 90%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+    }
+
+    h1 {
+      color: #F5F7EF;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #D1E6DE;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #A19E5B;
+      color: #F5F7EF;
+      font-size: 1rem;
+      padding: 10px 20px;
+      margin-top: 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #527A42;
+    }
+
+    @font-face {
+      font-family: 'Fantasy';
+      src: url('./fonts/fantasy.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        width: 100%;
+      }
+
+      .cta-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .cta-button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box">
+      <h1>The Training Grounds</h1>
+      <p>You have arrived at the hallowed grounds where skills are honed. Below, you'll find portals to small, completed
+        challenges.</p>
+      <a href="./advice-generator-app-main/index.html" class="cta-button">Advice Generator</a>
+    </div>
+  </div>
+</body>
+
+</html>
