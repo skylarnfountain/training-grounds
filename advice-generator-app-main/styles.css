@@ -1,51 +1,107 @@
-/* add to technical documentation */
+/* Primary Font */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+
+/* Universal Styles */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", sans-serif;
+}
+
 body {
-  background-color: rgb(48, 52, 70);
+  background-color: hsl(218, 23%, 16%);
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-}
-
-.box {
-    background-color: rgb(78, 83, 105);
-  padding: 30px;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-}
-
-.icon {
-    width: 50px;
-    height: 50px;
-    background-color: hsl(150, 100%, 66%);
-    border-radius: 50%;
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.icon img {
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-}
-
+/* Typography */
 h1 {
   color: hsl(150, 100%, 66%);
+  font-size: 10px;
+  letter-spacing: 3px;
 }
 
 p {
   color: hsl(193, 38%, 86%);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* Link Styles */
+a {
+  color: hsl(193, 38%, 86%);
+  text-decoration: none;
+}
+
+a:hover {
+  color: hsl(150, 100%, 76%);
+}
+
+a:visited {
+  color:  hsl(150, 100%, 66%);
+}
+
+/* Layout and Structure */
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25vw;
+  height: auto;
+  padding: 30px;
+  background-color: hsl(217, 19%, 24%);
+  border-radius: 10px;
+  text-align: center;
+  gap: 20px;
+}
+
+/* Visual Styles */
+.divider-image {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.icon {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: hsl(150, 100%, 66%);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.icon img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.icon:hover {
+  box-shadow: 0 0 30px hsl(150, 100%, 76%);
+}
+
+footer {
+  background-color: hsl(217, 19%, 38%);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

@@ -10,22 +10,32 @@
 </head>
 
 <body>
-  <div class="container">
+
+  <main class="container">
     <div class="box">
-      <h1>Advice <span id="advice-title"></span></h1>
+      <h1>ADVICE #<span id="advice-title"></span></h1>
       <p id="advice"></p>
-      <img src="./images/pattern-divider-desktop.svg" alt="Pattern Divider">
+      <img class="divider-image" src="./images/pattern-divider-desktop.svg" alt="Pattern Divider">
       <div class="icon">
         <img id="fetch-advice" src="./images/icon-dice.svg" alt="Fetch Advice Icon">
       </div>
     </div>
-  </div>
+  </main>
+
+  <footer class="attribution">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+      >Frontend Mentor</a
+    >. Coded by <a href="https://github.com/skylarnfountain">skylarnfountain</a>.
+  </footer>
+
   <script type="text/javascript">
     /* Fetches advice quote from API and populates values */
     async function fetchAdvice() {
       try {
+        /* Due to caching, we can't get a new quote until a few seconds later - added a timestamp to bypass this so it is unique */
         var apiUrl = 'https://api.adviceslip.com/advice';
-        const response = await fetch(apiUrl);
+        const response = await fetch(`${apiUrl}?timestamp=${new Date().getTime()}`);
 
         if (!response.ok) {
           throw new Error('Error in fetching Advice API: ' + response.statusText);
@@ -33,7 +43,7 @@
 
         const data = await response.json();
         
-        document.getElementById('advice').innerText = data.slip.advice;
+        document.getElementById('advice').innerText = `"${data.slip.advice}"`;
         document.getElementById('advice-title').innerText = data.slip.id;
       } catch (error) {
         console.error('Error in fetchAdvice', error);
@@ -45,6 +55,7 @@
     /* Adds event listener to the <img> element to fetch advice again when clicked */
     document.getElementById('fetch-advice').addEventListener('click', fetchAdvice);
   </script>
+
 </body>
 
 </html>
